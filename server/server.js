@@ -15,7 +15,9 @@ const users = [{ id: 1, username: "admin", password: "1234" }];
 // 로그인 API
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
-  const user = users.find(u => u.username === username && u.password === password);
+  const user = users.find(
+    (u) => u.username === username && u.password === password
+  );
 
   if (!user) {
     return res.status(401).json({ message: "Invalid credentials" });
@@ -42,4 +44,6 @@ app.get("/api/profile", (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log("✅ Express API running on http://localhost:3000"));
+app.listen(3000, () =>
+  console.log("✅ Express API running on http://localhost:3000")
+);
